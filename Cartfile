@@ -1,0 +1,2 @@
+git "https://github.com/Quick/Nimble" "v6.1.0"
+github "jwfriese/Fleet" "3.3.0"
