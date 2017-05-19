@@ -1,6 +1,7 @@
 import XCTest
 import Nimble
 import Fleet
+import AVFoundation
 
 @testable import Talker
 
@@ -15,5 +16,11 @@ class TalkerTests: XCTestCase {
         try! viewController.button?.tap()
         
         expect(viewController.talkBackLabel?.text).to(equal("hello everyone"))
+    }
+    func test_whenEnteringTextIntoTheTextFieldAndPressingTalkButton_passesTextToSynthesizer() {
+//        let synthesizer = AVSpeechSynthesizer()
+//        let utterance = AVSpeech(string:"hello")
+
+//        expect(
     }
 }
