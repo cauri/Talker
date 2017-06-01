@@ -1,7 +1,7 @@
 import UIKit
 
 class TalkerViewController: UIViewController {
-    @IBOutlet weak var textField: UITextField?
+    @IBOutlet weak var textView: UITextView?
     @IBOutlet weak var button: UIButton?
     @IBOutlet weak var talkBackLabel: UILabel?
     @IBOutlet weak var settingsButton: UIButton?
@@ -11,6 +11,9 @@ class TalkerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textView?.layer.borderWidth = 1.0
+        textView?.layer.borderColor = UIColor.black.cgColor
+        textView?.layer.cornerRadius = 10
     }
 
     @IBAction func showAlert() {
@@ -23,10 +26,10 @@ class TalkerViewController: UIViewController {
     }
 
     @IBAction func onTap() {
-        talkBackLabel?.text = textField?.text
+        talkBackLabel?.text = textView?.text
 
         // This is a good, safe way to unwrap optionals
-        if let userWords = textField?.text {
+        if let userWords = textView?.text {
             talker.say(words: userWords)
         } else {
             showAlert()

@@ -20,7 +20,7 @@ class TalkerTests: XCTestCase {
 
         Fleet.setAsAppWindowRoot(viewController)
 
-        try! viewController.textField?.enter(text: "hello everyone")
+        try! viewController.textView?.enter(text: "hello everyone")
         try! viewController.button?.tap()
 
         expect(viewController.talkBackLabel?.text).to(equal("hello everyone"))
@@ -35,7 +35,7 @@ class TalkerTests: XCTestCase {
         let mockTalker = MockTalker()
         viewController.talker = mockTalker
 
-        try! viewController.textField?.enter(text: "hello everyone")
+        try! viewController.textView?.enter(text: "hello everyone")
         try! viewController.button?.tap()
 
         expect(mockTalker.sayMethodCalledWith).to(equal("hello everyone"))
