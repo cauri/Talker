@@ -37,24 +37,65 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P9-FT-XHw">
-                                <rect key="frame" x="46" y="217" width="284" height="21"/>
+                                <rect key="frame" x="46" y="444" width="284" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD8-ke-pdu">
+                                <rect key="frame" x="302" y="617" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settingsTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="dl1-2f-unY"/>
+                                    <segue destination="OSV-1I-yVD" kind="show" id="ksA-h2-hTo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="button" destination="3oo-bJ-Dmm" id="Xkp-Os-Qby"/>
+                        <outlet property="settingsButton" destination="OD8-ke-pdu" id="Bd6-a8-MUT"/>
                         <outlet property="talkBackLabel" destination="7P9-FT-XHw" id="084-Pi-K2O"/>
                         <outlet property="textField" destination="HVR-Dr-W3j" id="RJN-eh-Atn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184.80000000000001" y="35.532233883058474"/>
+            <point key="canvasLocation" x="152.80000000000001" y="54.422788605697157"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="f3K-QM-Biv">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="OSV-1I-yVD" customClass="SettingsViewController" customModule="Talker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NXw-id-08h"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZZm-UT-aJx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P9U-pD-zm4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSU-yj-3ov">
+                                <rect key="frame" x="317" y="617" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Talker"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="68T-4C-OjS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="talkerButton" destination="BSU-yj-3ov" id="Nge-5V-An5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMP-Wi-Hg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="54"/>
         </scene>
     </scenes>
 </document>
