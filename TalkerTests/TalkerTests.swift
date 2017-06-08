@@ -75,4 +75,24 @@ class TalkerTests: XCTestCase {
         expect(Fleet.getApplicationScreen()?.topmostViewController).toEventually(beIdenticalTo(talkerViewController))
     }
 
+    func test_whenTappingTellMeWithNoText_showsAlert() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TalkerViewController") as! TalkerViewController
+
+        Fleet.setAsAppWindowRoot(viewController)
+
+        try! viewController.button!.tap()
+
+        let alertController = Fleet.getApplicationScreen()?.topmostViewController as! UIAlertController
+
+        expect(alertController).toEventually(beAKindOf(UIAlertController.self))
+
+        expect(alertController.title).to(equal("Need text"))
+
+        expect(alertController.message).to(equal("Please enter some text to speak"))
+
+        try! alertController.tapAlertAction(withTitle: "Ok")
+        expect(Fleet.getApplicationScreen()?.topmostViewController).toEventually(beIdenticalTo(viewController))
+
+    }
 }

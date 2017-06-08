@@ -16,10 +16,9 @@ class TalkerViewController: UIViewController {
         textView?.layer.cornerRadius = 10
     }
 
-    @IBAction func showAlert() {
+    func showEmptyTextAlert() {
         let alertController = UIAlertController(title: "Need text", message: "Please enter some text to speak", preferredStyle: .alert)
-
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(defaultAction)
 
         present(alertController, animated: true, completion: nil)
@@ -31,11 +30,12 @@ class TalkerViewController: UIViewController {
         // This is a good, safe way to unwrap optionals
         if let userWords = textView?.text {
             talker.say(words: userWords)
+            if userWords == "" {
+                showEmptyTextAlert()
+            }
         } else {
-            showAlert()
+            showEmptyTextAlert()
         }
     }
-
-
 }
 
